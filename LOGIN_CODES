@@ -1,0 +1,41 @@
+class user:
+     def __init__(self, username,password):#method
+         self.username= username
+         self.password=password
+         self.is_logged_in = False
+
+     def login(self):
+         if self.is_logged_in:
+             print(f'{self.username} is already logged in')
+         else:
+             self.is_logged_in= True
+             print(f'{self.username} logged in')
+
+     def logout(self):
+         if self.is_logged_in:
+             self.is_logged_in= False
+             print(f'{self.username} logged out')
+         else:
+             print(f'{self.username} is already logged out')
+             
+class admin(user):
+    def __init__(self,username,password):
+        super().__init__(username,password)
+        self.can_edit=True
+    def update_details(self):
+        if self.is_logged_in:
+            print('updating_details')
+        else:
+            print(f'{self.username} not logged in')             
+
+
+exe:-
+#user1=user('anbu', 'strong') #user1 is the object created
+#user1.login()
+#user1.login()
+#user1.logout()
+#user1.logout()
+
+#user2=user('aadhi','hello')
+#user2.login()
+#user2.logout()
